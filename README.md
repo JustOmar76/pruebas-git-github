@@ -113,5 +113,41 @@ git push
 > Saludo de prueba tras resolver el conflicto:
 > Hola resuelto, aprendi a resolver conflictos!
 
+### 7. Ver Historial y Comparar (solo lectura)
+```bash
+# Historial compacto con ramas y grafico
+git log --oneline --graph --all -10
+
+# Ver detalle y archivos de un commit
+git show HEAD --stat
+git show HEAD
+
+# Evitar que el pager te atrape (q para salir del pager)
+git --no-pager show HEAD --stat
+git --no-pager log --oneline -5
+git --no-pager diff
+```
+
+### 8. Deshacer Cambios y Stash
+```bash
+# Ver que cambio sin commitear
+git status
+git diff
+
+# Descartar cambios de un archivo (volver a clean)
+git restore README.md
+
+# Sacar un archivo de staging (mantiene el cambio)
+git restore --staged README.md
+
+# Guardar cambios a medias en un bolsillo temporal
+git stash
+git status        # queda en working tree clean
+git stash list    # stash@{0}: WIP on main...
+
+# Recuperar lo guardado y borrar el stash
+git stash pop
+```
+
 ---
 *Documento actualizado automáticamente durante la sesión de aprendizaje.*

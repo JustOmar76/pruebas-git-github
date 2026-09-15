@@ -48,10 +48,70 @@ git push -u origin main
 # Subir cambios en futuros commits
 git push
 ```
-### 4. Pruebas en ramas
+### 4. Ramas (Branches)
 ```bash
-# Saludo desde mi-primera-rama
-Hola resuelto, aprendi a resolver conflictos!
+# Ver ramas locales y en que rama estas (*)
+git branch
+
+# Ver todas las ramas (locales + remotas)
+git branch -a
+
+# Crear una rama nueva y moverte a ella
+git checkout -b feature/mi-primera-rama
+
+# Forma moderna (equivale a lo anterior)
+git switch -c feature/mi-primera-rama
+
+# Cambiar entre ramas existentes
+git checkout main
+git switch main
+
+# Subir una rama nueva a GitHub por primera vez
+git push -u origin feature/mi-primera-rama
+
+# Borrar rama local ya fusionada
+git branch -d feature/mi-primera-rama
+
+# Borrar rama remota + limpiar referencias viejas
+git push origin --delete feature/mi-primera-rama
+git fetch --prune
 ```
+
+### 5. Pull Request y Merge
+```bash
+# 1. En GitHub: Pull requests > New pull request
+# Base: main <- Compare: feature/mi-primera-rama
+# Create pull request > Merge pull request > Confirm merge
+
+# 2. Actualizar tu local despues del merge en GitHub
+git checkout main
+git pull
+git log --oneline -5
+```
+
+### 6. Conflictos (Merge Conflict)
+```bash
+# Provocar: editar la MISMA linea en dos ramas y luego:
+git checkout main
+git merge feature/conflicto
+# CONFLICT (content): Merge conflict in README.md
+
+# Git marca el archivo asi:
+# <<<<<<< HEAD
+# Hola desde main
+# =======
+# Hola desde rama conflicto
+# >>>>>>> feature/conflicto
+
+# Resolver: editar el archivo, dejar UNA sola linea final,
+# borrar las marcas <<<<<<< ======= >>>>>>>, guardar y luego:
+git add README.md
+git commit -m "fix: resolve merge conflict in greeting"
+git push
+```
+
+> Saludo de prueba tras resolver el conflicto:
+> Hola resuelto, aprendi a resolver conflictos!
+
 ---
 *Documento actualizado automáticamente durante la sesión de aprendizaje.*

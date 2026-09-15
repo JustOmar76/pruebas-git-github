@@ -51,7 +51,7 @@ git push
 ###4. Pruebas en ramas
 ```bash
 # Saludo desde mi-primera-rama
-Holaa!
+Hola desde main
 ```
 ---
 *Documento actualizado automáticamente durante la sesión de aprendizaje.*

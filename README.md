@@ -48,6 +48,10 @@ git push -u origin main
 # Subir cambios en futuros commits
 git push
 ```
-
+###4. Pruebas en ramas
+```bash
+# Saludo desde mi-primera-rama
+Holaa!
+```
 ---
 *Documento actualizado automáticamente durante la sesión de aprendizaje.*
